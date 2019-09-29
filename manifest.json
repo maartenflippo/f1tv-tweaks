@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "Better F1TV",
+    "version": "1.0",
+    "author": "Maarten Flippo",
+
+    "description": "Adds useful tools to add to the usability of the F1TV streaming page.",
+
+    "icons": {
+        "48": "icons/logo-48.png",
+        "96": "icons/logo-96.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://f1tv.formula1.com/*"],
+            "js": ["modules/shortcuts.js"]
+        }
+    ]
+}
