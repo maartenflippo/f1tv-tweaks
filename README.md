@@ -1,4 +1,4 @@
-# Better F1TV
+# F1TV Tweaks
 
 This extension is developed to counter small annoyances with the F1TV streaming page.
 
