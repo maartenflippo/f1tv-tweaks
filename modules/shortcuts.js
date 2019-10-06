@@ -25,12 +25,24 @@
         }
     };
 
+    const actionMap = {
+        playPause: " ",
+        fullscreen: "f",
+        mute: "m",
+        increaseVolume: "ArrowUp",
+        decreaseVolume: "ArrowDown"
+    };
+
     const keyMap = {
-        f: clickButton("app-full-screen-button > div.full-screen-button"),
-        " ": clickButton("app-play-pause-button > div.play-pause-button"),
-        m: clickButton("app-mute-button > div.mute-button"),
-        ArrowUp: changeVolume(5),
-        ArrowDown: changeVolume(-5)
+        [actionMap.fullscreen]: clickButton(
+            "app-full-screen-button > div.full-screen-button"
+        ),
+        [actionMap.playPause]: clickButton(
+            "app-play-pause-button > div.play-pause-button"
+        ),
+        [actionMap.mute]: clickButton("app-mute-button > div.mute-button"),
+        [actionMap.increaseVolume]: changeVolume(5),
+        [actionMap.decreaseVolume]: changeVolume(-5)
     };
 
     document.addEventListener("keydown", e => {
