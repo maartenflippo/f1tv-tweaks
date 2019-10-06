@@ -25,12 +25,8 @@
     flex-direction: column;
 }
 
-.content-wrapper__inner > :first-child > div {
+.content-wrapper__inner > :first-child > :first-child {
     flex: 1;
-}
-
-.content-wrapper__inner > :first-child > :last-child {
-    display: none;
 }
 
 #html5-player {
@@ -56,6 +52,42 @@ app-player-group {
 .playerWrapper {
     padding: 0 !important;
     flex: 1 !important;
+}
+
+/* Video title */
+.content-wrapper__inner > :first-child > :last-child {
+    padding-top: 0;
+}
+
+.content-wrapper__inner > :first-child > :last-child > div {
+    margin: 0;
+    border-radius: 0;
+    width: auto;
+    max-width: 100%;
+    padding: 20px 0;
+}
+
+.content-wrapper__inner > :first-child > :last-child > div span {
+    display: inline;
+}
+
+.content-wrapper__inner > :first-child > :last-child > div span:first-child {
+    font-size: 22px;
+    line-height: normal;
+    margin-right: 20px;
+}
+
+.content-wrapper__inner
+    > :first-child
+    > :last-child
+    > div
+    span:first-child::after {
+    content: "●";
+    margin-left: 20px;
+}
+
+.content-wrapper__inner > :first-child > :last-child > div span:last-child {
+    font-size: 16px;
 }
 
 /* Sidebar */
