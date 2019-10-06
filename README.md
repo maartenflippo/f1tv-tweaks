@@ -10,6 +10,8 @@ The extension provides the following short-cuts to manage the web player:
 |`f`|Toggle fullscreen|
 |`space`| Toggle play/pause |
 |`m`|Toggle mute|
+|`up arrow`|Increase volume|
+|`down arrow`|Decrease volume|
 
 # Todo
  - [ ] Select camera view from sidebar with shortcut
