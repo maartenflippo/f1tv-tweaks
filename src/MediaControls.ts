@@ -45,13 +45,16 @@ export class MediaControls implements IExtensionFeature {
     constructor(keyMap: KeyMap) {
         this.actions = Object.entries(keyMap).map(entry => {
             const [actionName, keyMatch] = entry;
+
+            const key =
+                typeof keyMatch === "string"
+                    ? (e: KeyboardEvent) => e.key === entry[1]
+                    : keyMatch;
+
             const action = actionMap[actionName];
 
             return {
-                key:
-                    typeof keyMatch === "string"
-                        ? e => e.key === entry[1]
-                        : keyMatch,
+                key,
                 action
             };
         });
@@ -68,6 +71,8 @@ export class MediaControls implements IExtensionFeature {
                     ? e.key === actionKey.key
                     : actionKey.key(e)
             )
-            .forEach(actionKey => actionKey.action());
+            .forEach(actionKey => {
+                actionKey.action();
+            });
     };
 }
