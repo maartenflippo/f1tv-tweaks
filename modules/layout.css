@@ -65,6 +65,31 @@
     > :first-child
     > :last-child {
     padding-top: 0;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 50px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 1;
+    transition: ease opacity 600ms;
+}
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child
+    > :first-child {
+    background: transparent;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child.hidden {
+    opacity: 0;
 }
 
 ._2c4vB
