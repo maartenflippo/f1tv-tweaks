@@ -1,5 +1,5 @@
 import { IExtensionFeature } from "./shared/IExtensionFeature";
-import { clickButton, changeVolume } from "./actions";
+import { clickButton, changeVolume, toggleLockedControls } from "./actions";
 
 /**
  * The media controls that are supported with keyboard shortcuts.
@@ -9,7 +9,8 @@ const enum Action {
     PlayPause,
     Mute,
     IncreaseVolume,
-    DecreaseVolume
+    DecreaseVolume,
+    LockControls
 }
 
 interface ActionKey {
@@ -34,7 +35,8 @@ const actionMap: ActionMap = {
     PlayPause: clickButton("app-play-pause-button > div.play-pause-button"),
     Mute: clickButton("app-mute-button > div.mute-button"),
     IncreaseVolume: changeVolume(5),
-    DecreaseVolume: changeVolume(-5)
+    DecreaseVolume: changeVolume(-5),
+    LockControls: toggleLockedControls
 };
 
 export class MediaControls implements IExtensionFeature {
