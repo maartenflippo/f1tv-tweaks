@@ -1,0 +1,29 @@
+{
+    "name": "f1tv-tweaks",
+    "version": "1.1.1",
+    "description": "Customizations to the F1TV video page",
+    "main": "src/main.js",
+    "scripts": {
+        "build": "rollup -c",
+        "build:watch": "rollup -c -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/maartenflippo/f1tv-tweaks.git"
+    },
+    "keywords": [
+        "f1",
+        "f1tv"
+    ],
+    "author": "Maarten Flippo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/maartenflippo/f1tv-tweaks/issues"
+    },
+    "homepage": "https://github.com/maartenflippo/f1tv-tweaks#readme",
+    "devDependencies": {
+        "rollup": "^1.23.1",
+        "rollup-plugin-typescript2": "^0.24.3",
+        "typescript": "^3.6.4"
+    }
+}
