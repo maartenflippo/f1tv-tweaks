@@ -134,3 +134,15 @@
 ._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child button {
     border-radius: 0;
 }
+
+/* Locked controls */
+#playerComponentContainer.locked-open .controlbar-container.hidden {
+    background-color: rgba(21, 21, 30, 0.8);
+}
+
+#playerComponentContainer.locked-open .upstairs.hidden,
+#playerComponentContainer.locked-open .downstairs.hidden {
+    opacity: 1;
+    visibility: visible;
+}
+/* /Locked controls */

@@ -12,6 +12,7 @@ The extension provides the following shortcuts to manage the web player:
 |`m`|Toggle mute|
 |`up arrow`|Increase volume|
 |`down arrow`|Decrease volume|
+|`l`|Lock video controls as visible|
 
 ## Todo
  - [ ] Select camera view from sidebar with shortcut

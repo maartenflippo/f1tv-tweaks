@@ -1,4 +1,12 @@
 (document => {
+    const toggleLockedControls = () => {
+        const player = document.querySelector("#playerComponentContainer");
+        console.log(player);
+        if (!player) return;
+
+        player.classList.toggle("locked-open");
+    };
+
     const changeVolume = deltaPercentage => () => {
         const video = document.querySelector("#hlsjsContent");
         const volumeSlider = document.querySelector(
@@ -30,7 +38,8 @@
         fullscreen: "f",
         mute: "m",
         increaseVolume: "ArrowUp",
-        decreaseVolume: "ArrowDown"
+        decreaseVolume: "ArrowDown",
+        lockControls: "l"
     };
 
     const keyMap = {
@@ -42,7 +51,8 @@
         ),
         [actionMap.mute]: clickButton("app-mute-button > div.mute-button"),
         [actionMap.increaseVolume]: changeVolume(5),
-        [actionMap.decreaseVolume]: changeVolume(-5)
+        [actionMap.decreaseVolume]: changeVolume(-5),
+        [actionMap.lockControls]: toggleLockedControls
     };
 
     document.addEventListener("keydown", e => {
