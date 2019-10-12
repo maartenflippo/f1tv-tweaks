@@ -171,3 +171,50 @@
     visibility: visible;
 }
 /* /Locked controls */
+
+/* Driver Picker */
+
+#playerComponentContainer .searchContainer {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 9998;
+    width: 50%;
+    max-width: 1200px;
+    max-height: 50%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #7e8190;
+}
+
+#playerComponentContainer .driverPicker {
+    background: rgba(202, 205, 214, 0.75);
+    border: none;
+    height: 60px;
+    padding: 0 20px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 24px;
+}
+
+#playerComponentContainer .channelList {
+    list-style: none;
+    width: 100%;
+    background: rgba(202, 205, 214, 0.75);
+}
+
+#playerComponentContainer .channelList li {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 4px 10px;
+    border-bottom: 1px solid #7e8190;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#playerComponentContainer .channelList li[csearchActive] {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* /Driver Picker */
