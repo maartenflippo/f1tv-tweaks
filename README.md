@@ -19,5 +19,12 @@ The extension provides the following shortcuts to manage the web player:
  - [ ] Configurable key map
  - [x] Different page layout
 
+# Build & Run
+If you have the repository cloned, run `npm install` to install the project dependencies.
+
+Then, the command
+ * `npm run build` will build a submittable ZIP file from the source.
+ * `npm run dev` will run rollup in watch mode.
+
 ## License
 This code is licensed under the MIT license.
