@@ -5,7 +5,7 @@
     "main": "src/main.js",
     "scripts": {
         "build": "rollup -c && web-ext build --source-dir public --overwrite-dest",
-        "build:dev": "rollup -c -w & web-ext run --source-dir public"
+        "dev": "rollup -c -w & web-ext run --source-dir public"
     },
     "repository": {
         "type": "git",

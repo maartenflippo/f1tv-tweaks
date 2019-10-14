@@ -2,7 +2,8 @@ import { defaultLogger as logger } from "./shared/Logger";
 import {
     clickButton,
     toggleLockedControls,
-    changeVolume
+    changeVolume,
+    moveTitle
 } from "./actions/index";
 
 logger.info("Starting...");
@@ -35,5 +36,7 @@ document.addEventListener("keydown", e => {
         keyMap[e.key]();
     }
 });
+
+moveTitle();
 
 logger.info("Started");
