@@ -1,0 +1,31 @@
+{
+    "name": "f1tv-tweaks",
+    "version": "1.1.1",
+    "description": "Adds useful tools to add to the usability of the F1TV streaming page",
+    "main": "src/main.js",
+    "scripts": {
+        "generate-manifest": "node tasks/generate-manifest.js",
+        "sources-artifact": "node tasks/generate-sources-artifact.js",
+        "build": "npm run generate-manifest && npm run sources-artifact && rollup -c && web-ext build --source-dir public --overwrite-dest",
+        "dev": "npm run generate-manifest && rollup -c -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/maartenflippo/f1tv-tweaks.git"
+    },
+    "keywords": [
+        "f1",
+        "f1tv"
+    ],
+    "author": "Maarten Flippo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/maartenflippo/f1tv-tweaks/issues"
+    },
+    "homepage": "https://github.com/maartenflippo/f1tv-tweaks#readme",
+    "devDependencies": {
+        "archiver": "^3.1.1",
+        "rollup": "^1.23.1",
+        "web-ext": "^3.2.0"
+    }
+}

@@ -15,8 +15,8 @@
     "content_scripts": [
         {
             "matches": ["*://f1tv.formula1.com/*"],
-            "js": ["modules/shortcuts.js", "modules/utils.js"],
-            "css": ["modules/layout.css"]
+            "js": ["bundle.js"],
+            "css": ["layout.css"]
         }
     ]
 }
