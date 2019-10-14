@@ -1,10 +1,10 @@
 {
     "name": "f1tv-tweaks",
     "version": "1.1.1",
-    "description": "Customizations to the F1TV video page",
+    "description": "Adds useful tools to add to the usability of the F1TV streaming page",
     "main": "src/main.js",
     "scripts": {
-        "build": "rollup -c && web-ext build --source-dir public --overwrite-dest",
+        "build": "node tasks/generate-manifest.js && rollup -c && web-ext build --source-dir public --overwrite-dest",
         "dev": "rollup -c -w"
     },
     "repository": {
