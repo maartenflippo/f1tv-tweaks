@@ -1,3 +1,8 @@
+/**
+ * Generates the "manifest.json" file for the extension, with the version as
+ * specified in the "package.json".
+ */
+
 const path = require("path");
 const fs = require("fs");
 
