@@ -3,10 +3,12 @@ import { defaultLogger } from "../shared/Logger";
 /**
  * Click a html element on the page.
  *
- * @param selector The html element to click.
+ * @param {String} selector The html element to click.
+ * @returns {Function} When called, triggers a click event on the element with
+ * the given selector.
  */
-export const clickButton = (selector: string) => () => {
-    const element = document.querySelector(selector) as HTMLElement;
+export const clickButton = selector => () => {
+    const element = document.querySelector(selector);
 
     if (element) {
         defaultLogger.debug(`Clicking ${element}`);

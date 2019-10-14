@@ -22,8 +22,6 @@
     },
     "homepage": "https://github.com/maartenflippo/f1tv-tweaks#readme",
     "devDependencies": {
-        "rollup": "^1.23.1",
-        "rollup-plugin-typescript2": "^0.24.3",
-        "typescript": "^3.6.4"
+        "rollup": "^1.23.1"
     }
 }
