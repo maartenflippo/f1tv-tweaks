@@ -148,6 +148,33 @@
     font-size: 16px;
 }
 
+/* Driver cam title */
+/* Driver number */
+._1BL6p {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Driver image, stylized number */
+.gkmHm,
+._2VAGG {
+    display: none;
+}
+
+/* Hide rounded line in title */
+._3TTki {
+    border: none;
+}
+
+/* Vertically center driver number */
+._378QM {
+    min-height: 0px;
+    align-items: center;
+}
+
+/* /Driver cam title */
+
 /* Sidebar */
 ._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child {
     max-width: 250px;
