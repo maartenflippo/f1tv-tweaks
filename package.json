@@ -7,7 +7,8 @@
         "generate-manifest": "node tasks/generate-manifest.js",
         "sources-artifact": "node tasks/generate-sources-artifact.js",
         "build": "npm run generate-manifest && npm run sources-artifact && rollup -c && web-ext build --source-dir public --overwrite-dest",
-        "dev": "npm run generate-manifest && rollup -c -w"
+        "dev": "npm run generate-manifest && rollup -c -w",
+        "web-ext": "web-ext run --source-dir public"
     },
     "repository": {
         "type": "git",
