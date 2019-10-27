@@ -2,6 +2,12 @@
 
 This extension is developed to counter small annoyances with the F1TV streaming page. It adds keyboard shortcuts to manage media playback and modifies the page layout to increase the size of the player to be as large as possible.
 
+## UI Changes
+This extension alter the UI of the replay/streaming page in a number of ways. The primary change is the size of the video feed. It is maximized to take up all space not required for the camera selection and video controls/title.
+
+The extension also adds some buttons to the page to add more functionality to the player:
+* A lock: Allows the user to lock the video controls so they won't disappear when the mouse is not being moved.
+
 ## Shortcuts
 The extension provides the following shortcuts to manage the web player:
 
