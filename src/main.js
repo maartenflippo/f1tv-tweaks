@@ -6,7 +6,9 @@ import {
     changeVolume,
     moveTitle,
     channelPicker,
-    ChannelPickerisFocus
+    ChannelPickerisFocus,
+    skip,
+    moveTitle
 } from "./actions/index";
 
 let rendered = false;
@@ -32,7 +34,9 @@ const actionMap = {
     increaseVolume: "ArrowUp",
     decreaseVolume: "ArrowDown",
     lockControls: "l",
-    channelPicker: "d"
+    channelPicker: "d",
+    skipFiveForward: "ArrowRight",
+    skipFiveBack: "ArrowLeft"
 };
 
 const keyMap = {
@@ -46,7 +50,10 @@ const keyMap = {
     [actionMap.increaseVolume]: changeVolume(5),
     [actionMap.decreaseVolume]: changeVolume(-5),
     [actionMap.lockControls]: toggleLockedControls,
-    [actionMap.channelPicker]: channelPicker
+    [actionMap.channelPicker]: channelPicker,
+    [actionMap.skipFiveForward]: skip(5),
+    [actionMap.skipFiveBack]: skip(-5),
+    [actionMap.lockControls]: toggleLockedControls
 };
 
 document.addEventListener("keydown", e => {
