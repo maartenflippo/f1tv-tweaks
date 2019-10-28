@@ -18,6 +18,8 @@ The extension provides the following shortcuts to manage the web player:
 |`m`|Toggle mute|
 |`up arrow`|Increase volume|
 |`down arrow`|Decrease volume|
+|`right arrow`|Skip forward 5 seconds|
+|`left arrow`|Skip backward 5 seconds|
 |`l`|Lock video controls as visible|
 
 ## Todo
