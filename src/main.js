@@ -4,6 +4,7 @@ import {
     toggleLockedControls,
     createLockedButton,
     changeVolume,
+    skip,
     moveTitle
 } from "./actions/index";
 
@@ -29,7 +30,9 @@ const actionMap = {
     mute: "m",
     increaseVolume: "ArrowUp",
     decreaseVolume: "ArrowDown",
-    lockControls: "l"
+    lockControls: "l",
+    skipFiveForward: "ArrowRight",
+    skipFiveBack: "ArrowLeft"
 };
 
 const keyMap = {
@@ -42,6 +45,8 @@ const keyMap = {
     [actionMap.mute]: clickButton("app-mute-button > div.mute-button"),
     [actionMap.increaseVolume]: changeVolume(5),
     [actionMap.decreaseVolume]: changeVolume(-5),
+    [actionMap.skipFiveForward]: skip(5),
+    [actionMap.skipFiveBack]: skip(-5),
     [actionMap.lockControls]: toggleLockedControls
 };
 
