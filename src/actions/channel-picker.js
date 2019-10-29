@@ -175,7 +175,6 @@ export const channelPicker = _ => {
         retItems.forEach(item => {
             let node = document.createElement("li");
             node.textContent = item.item;
-            node.setAttribute("index", retItems.length - 1);
             node.addEventListener("click", bindItemClick, false);
             node.setAttribute("uid", item.elem);
             searchList().appendChild(node);
@@ -261,7 +260,12 @@ export const channelPicker = _ => {
         if (elem) {
             elem.setAttribute("cSearchActive", true);
         }
-        console.log(elem);
+
+        elem.scrollIntoView(true);
+        let searchHeight = searchList().parentElement.clientHeight - 60;
+        if (elem.offsetTop > searchHeight) {
+            console.log(searchList().style.marginTop);
+        }
     };
 
     getData();

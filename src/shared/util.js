@@ -12,7 +12,7 @@ export const exists = selector => {
  * Checks if an element exists with the given selector
  *
  * @param {String} selector
- * @returns {(Object|Boolean)} if true the element from the selector
+ * @returns {(Element|Boolean)} if true the element from the selector
  */
 export const returnExists = selector => {
     return document.querySelector(selector) !== undefined

@@ -183,26 +183,33 @@
     width: 50%;
     max-width: 1200px;
     max-height: 50%;
+    height: 50%;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #7e8190;
 }
 
 #playerComponentContainer .channelPicker {
     background: rgba(202, 205, 214, 0.75);
-    border: none;
+    border: 1px solid #7e8190;
     height: 60px;
     padding: 0 20px;
     outline: none;
     width: 100%;
     box-sizing: border-box;
     font-size: 24px;
+    display: block;
 }
 
 #playerComponentContainer .searchResult {
     list-style: none;
     width: 100%;
     background: rgba(202, 205, 214, 0.75);
+    overflow: hidden;
+    display: block;
+    max-height: calc(100% - 60px);
+    overflow: hidden;
+    border: 1px solid #7e8190;
+    border-top: none;
 }
 
 #playerComponentContainer .searchResult li {
