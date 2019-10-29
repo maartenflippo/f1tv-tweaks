@@ -160,7 +160,12 @@ export const channelPicker = () => {
                             .textContent.toUpperCase(),
                         elem
                             .querySelector(":first-child > span:last-child")
-                            .textContent.toUpperCase()
+                            .textContent.toUpperCase(),
+                        `${elem
+                            .getAttribute("firstname")
+                            .toUpperCase()} ${elem
+                            .getAttribute("lastname")
+                            .toUpperCase()}`
                     ],
                     elem: elem.getAttribute("uid")
                 });
