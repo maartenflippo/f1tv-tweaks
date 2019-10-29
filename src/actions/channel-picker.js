@@ -1,5 +1,6 @@
 import { defaultLogger } from "../shared/Logger";
 import { drivers } from "../data/drivers";
+import * as util from "../shared/util"
 
 export const channelPicker = _ => {
     const checkExists = _ => {
@@ -58,6 +59,15 @@ export const channelPicker = _ => {
     searchBar().addEventListener("input", _ => {
         searchResults();
     });
+    
+    const searchList = _ => {
+        if(!searchContainer()) return;
+        let list = null;
+        if(list = util.returnExists("#playerComponentContainer > .searchResult")) return list;
+        list = document.createElement("ul");
+        list.className = "searchResult";
+        return list;
+    }
 
     const submitForm = _ => {
         defaultLogger.info(`Submitted: ${searchBar().value}`);
@@ -69,16 +79,61 @@ export const channelPicker = _ => {
             "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :last-child [role=listitem] > button"
         );
         let possibilities = [];
+
+        // Add available non-driver Channels
         availabilities.forEach(elem => {
             switch (elem.textContent) {
                 case "Replay":
                 case "Pit Lane":
                 case "Tracker":
                 case "Data":
-                    possibilities.push(elem.textContent);
+                    possibilities.push({
+                        item: elem.textContent,
+                        searchTerms: [elem.textContent.toUpperCase()],
+                        elem: elem
+                    });
                     return;
             }
+            if(elem.hasAttribute("firstname") && elem.hasAttribute("lastname")){
+                // Search for First name, last name, number, initials
+                possibilities.push({
+                    item: `${elem.getAttribute("firstname")} ${elem.getAttribute("lastname")}`,
+                    searchTerms: [
+                        elem.getAttribute("firstname").toUpperCase(),
+                        elem.getAttribute("lastname").toUpperCase(),
+                        elem.querySelector(":first-child > span:first-child").textContent.toUpperCase(),
+                        elem.querySelector(":first-child > span:last-child").textContent.toUpperCase()
+                    ],
+                    elem: elem
+                });
+            }
+            return;
         });
+
+        // Do not attempt to serach without input
+        if(!input.length > 0) return;
+        
+        let retItems = [];
+
+        possibilities.forEach(item => {
+            
+
+            let bAdded = false;
+            item.searchTerms.forEach(term => {
+                if(term.indexOf(input) === -1) return;
+                if(!bAdded) retItems.push(item);
+                bAdded = true;
+            })
+
+        });
+
+        retItems.forEach(item => {
+            let node = document.createElement("li");
+            node.textContent = item.item;
+            node.setAttribute("index", retItems.length -1);
+            searchList().appendChild(node);
+        });
+        
     };
 
     const getData = _ => {
@@ -103,6 +158,7 @@ export const channelPicker = _ => {
             elem.setAttribute("firstname", item.first_name);
             elem.setAttribute("lastname", item.last_name);
         };
+        
     };
 
     getData();
