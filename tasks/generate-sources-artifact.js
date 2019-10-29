@@ -36,14 +36,26 @@ archive.on("error", function(err) {
 archive.pipe(output);
 
 archive.directory(path.resolve(__dirname, "../src"), "src");
+archive.directory(path.resolve(__dirname, "../tasks"), "tasks");
+archive.directory(path.resolve(__dirname, "../public/icons"), "public/icons");
+
 archive.file(path.resolve(__dirname, "../public/manifest.json"), {
     name: "manifest.json"
+});
+archive.file(path.resolve(__dirname, "../public/layout.css"), {
+    name: "public/layout.css"
 });
 archive.file(path.resolve(__dirname, "../rollup.config.js"), {
     name: "rollup.config.js"
 });
 archive.file(path.resolve(__dirname, "../package.json"), {
     name: "package.json"
+});
+archive.file(path.resolve(__dirname, "../package-lock.json"), {
+    name: "package-lock.json"
+});
+archive.file(path.resolve(__dirname, "../README.md"), {
+    name: "README.md"
 });
 
 archive.finalize();

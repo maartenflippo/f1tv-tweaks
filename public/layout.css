@@ -148,6 +148,33 @@
     font-size: 16px;
 }
 
+/* Driver cam title */
+/* Driver number */
+._1BL6p {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Driver image, stylized number */
+.gkmHm,
+._2VAGG {
+    display: none;
+}
+
+/* Hide rounded line in title */
+._3TTki {
+    border: none;
+}
+
+/* Vertically center driver number */
+._378QM {
+    min-height: 0px;
+    align-items: center;
+}
+
+/* /Driver cam title */
+
 /* Sidebar */
 ._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child {
     max-width: 250px;
@@ -169,6 +196,25 @@
 #playerComponentContainer.locked-open .downstairs.hidden {
     opacity: 1;
     visibility: visible;
+}
+
+.tweaks-button {
+    width: 22px;
+    height: 22px;
+    margin-left: 16px;
+    opacity: 0.7;
+}
+
+.lock-controls-button .icon {
+    display: block;
+    font-family: ReplayerIcons;
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+}
+
+.lock-controls-button .icon::before {
+    content: "\e98f";
 }
 /* /Locked controls */
 
