@@ -199,13 +199,13 @@
     font-size: 24px;
 }
 
-#playerComponentContainer .channelList {
+#playerComponentContainer .searchResult {
     list-style: none;
     width: 100%;
     background: rgba(202, 205, 214, 0.75);
 }
 
-#playerComponentContainer .channelList li {
+#playerComponentContainer .searchResult li {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     padding: 4px 10px;
     border-bottom: 1px solid #7e8190;
@@ -213,7 +213,7 @@
     cursor: pointer;
 }
 
-#playerComponentContainer .channelList li[csearchActive] {
+#playerComponentContainer .searchResult li[csearchActive] {
     background: rgba(0, 0, 0, 0.2);
 }
 

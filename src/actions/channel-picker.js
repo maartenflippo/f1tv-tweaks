@@ -1,8 +1,11 @@
 import { defaultLogger } from "../shared/Logger";
 import { drivers } from "../data/drivers";
-import * as util from "../shared/util"
+import * as util from "../shared/util";
 
 export const channelPicker = _ => {
+    /**
+     * @returns {Boolean}
+     */
     const checkExists = _ => {
         if (
             document.querySelector(
@@ -14,6 +17,9 @@ export const channelPicker = _ => {
         return false;
     };
 
+    /**
+     * @returns {Element}
+     */
     const searchContainer = _ => {
         if (checkExists()) {
             return document.querySelector(
@@ -29,7 +35,10 @@ export const channelPicker = _ => {
         return container;
     };
 
-    const searchBar = _ => {
+    /**
+     * @returns {Element}
+     */
+    const searchBar = () => {
         let input = searchContainer().querySelector(".channelPicker");
         if (input) return input;
         input = document.createElement("input");
@@ -59,22 +68,33 @@ export const channelPicker = _ => {
     searchBar().addEventListener("input", _ => {
         searchResults();
     });
-    
-    const searchList = _ => {
-        if(!searchContainer()) return;
+
+    /**
+     * @returns {Element}
+     */
+    const searchList = () => {
+        if (!searchContainer()) return;
         let list = null;
-        if(list = util.returnExists("#playerComponentContainer > div.searchContainer > ul.searchResult")) return list;
+        if (
+            (list = util.returnExists(
+                "#playerComponentContainer > div.searchContainer > ul.searchResult"
+            ))
+        )
+            return list;
         list = document.createElement("ul");
         list.className = "searchResult";
         searchContainer().appendChild(list);
         return list;
-    }
+    };
 
-    const submitForm = _ => {
+    const submitForm = () => {
         defaultLogger.info(`Submitted: ${searchBar().value}`);
     };
 
-    const searchResults = _ => {
+    /**
+     * Searches through all available channels and presents them
+     */
+    const searchResults = () => {
         const input = searchBar().value;
         const availabilities = document.querySelectorAll(
             "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :last-child [role=listitem] > button"
@@ -95,15 +115,24 @@ export const channelPicker = _ => {
                     });
                     return;
             }
-            if(elem.hasAttribute("firstname") && elem.hasAttribute("lastname")){
+            if (
+                elem.hasAttribute("firstname") &&
+                elem.hasAttribute("lastname")
+            ) {
                 // Search for First name, last name, number, initials
                 possibilities.push({
-                    item: `${elem.getAttribute("firstname")} ${elem.getAttribute("lastname")}`,
+                    item: `${elem.getAttribute(
+                        "firstname"
+                    )} ${elem.getAttribute("lastname")}`,
                     searchTerms: [
                         elem.getAttribute("firstname").toUpperCase(),
                         elem.getAttribute("lastname").toUpperCase(),
-                        elem.querySelector(":first-child > span:first-child").textContent.toUpperCase(),
-                        elem.querySelector(":first-child > span:last-child").textContent.toUpperCase()
+                        elem
+                            .querySelector(":first-child > span:first-child")
+                            .textContent.toUpperCase(),
+                        elem
+                            .querySelector(":first-child > span:last-child")
+                            .textContent.toUpperCase()
                     ],
                     elem: elem
                 });
@@ -111,43 +140,42 @@ export const channelPicker = _ => {
             return;
         });
 
-
         clearList();
 
         // Do not attempt to serach without input
-        if(!input.length > 0) return;
-        
+        if (!input.length > 0) return;
+
         let retItems = [];
 
         possibilities.forEach(item => {
-            
-
             let bAdded = false;
             item.searchTerms.forEach(term => {
-                if(term.indexOf(input.toUpperCase()) === -1) return;
-                if(!bAdded) retItems.push(item);
+                if (term.indexOf(input.toUpperCase()) === -1) return;
+                if (!bAdded) retItems.push(item);
                 bAdded = true;
-            })
-
+            });
         });
-        
+
         retItems.forEach(item => {
             let node = document.createElement("li");
             node.textContent = item.item;
-            node.setAttribute("index", retItems.length -1);
+            node.setAttribute("index", retItems.length - 1);
+            node.addEventListener("click", bindItemClick, false);
             searchList().appendChild(node);
         });
-        
     };
 
-    const clearList = _ => {
+    /**
+     * Deletes all children from the Searchresult list.
+     */
+    const clearList = () => {
         let list = searchList();
-        while(list.firstChild){
+        while (list.firstChild) {
             list.removeChild(list.lastChild);
         }
-    }
+    };
 
-    const getData = _ => {
+    const getData = () => {
         const driverBtns = document.querySelectorAll(
             "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :last-child > :last-child [role=listitem] button"
         );
@@ -158,6 +186,12 @@ export const channelPicker = _ => {
         });
     };
 
+    /**
+     *
+     * @param {String} name
+     * @param {String} number
+     * @param {Element} elem
+     */
     const getDriverInfo = (name, number, elem) => {
         let url = `https://f1tv.formula1.com/api/driver/?driver_tla=${name}&driver_racingnumber=${number}&limit=1&fields=first_name,last_name`;
         let request = new XMLHttpRequest();
@@ -169,7 +203,16 @@ export const channelPicker = _ => {
             elem.setAttribute("firstname", item.first_name);
             elem.setAttribute("lastname", item.last_name);
         };
-        
+    };
+
+    /**
+     *
+     *
+     * @param {Event} e
+     */
+    const bindItemClick = e => {
+        e.preventDefault();
+        console.log(e);
     };
 
     getData();
