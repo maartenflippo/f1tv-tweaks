@@ -28,7 +28,7 @@ export const channelPicker = _ => {
         }
         let container = document.createElement("div");
         container.className = "searchContainer";
-        container.setAttribute("csearchIdx", 0);
+        container.setAttribute("cSearchIdx", 0);
         let player = document.querySelector("#playerComponentContainer");
         if (!player) return container;
         player.append(container);
@@ -62,6 +62,14 @@ export const channelPicker = _ => {
             case "Escape":
                 searchBar().blur();
                 break;
+            case "ArrowUp":
+                selectPrevItem();
+                e.preventDefault();
+                break;
+            case "ArrowDown":
+                selectNextItem();
+                e.preventDefault();
+                break;
         }
     });
 
@@ -89,6 +97,12 @@ export const channelPicker = _ => {
 
     const submitForm = () => {
         defaultLogger.info(`Submitted: ${searchBar().value}`);
+        let active = document.querySelector("[cSearchActive]");
+        if (active) {
+            let uid = active.getAttribute("uid");
+            let btn = document.querySelector(`button[uid=${uid}]`);
+            btn.click();
+        }
     };
 
     /**
@@ -111,7 +125,7 @@ export const channelPicker = _ => {
                     possibilities.push({
                         item: elem.textContent,
                         searchTerms: [elem.textContent.toUpperCase()],
-                        elem: elem
+                        elem: elem.textContent
                     });
                     return;
             }
@@ -134,7 +148,7 @@ export const channelPicker = _ => {
                             .querySelector(":first-child > span:last-child")
                             .textContent.toUpperCase()
                     ],
-                    elem: elem
+                    elem: elem.getAttribute("uid")
                 });
             }
             return;
@@ -146,6 +160,8 @@ export const channelPicker = _ => {
         if (!input.length > 0) return;
 
         let retItems = [];
+
+        searchContainer().setAttribute("cSearchIdx", 1);
 
         possibilities.forEach(item => {
             let bAdded = false;
@@ -161,8 +177,10 @@ export const channelPicker = _ => {
             node.textContent = item.item;
             node.setAttribute("index", retItems.length - 1);
             node.addEventListener("click", bindItemClick, false);
+            node.setAttribute("uid", item.elem);
             searchList().appendChild(node);
         });
+        updateSelectedItem();
     };
 
     /**
@@ -203,16 +221,47 @@ export const channelPicker = _ => {
             elem.setAttribute("firstname", item.first_name);
             elem.setAttribute("lastname", item.last_name);
         };
+        elem.setAttribute("uid", `${name}${number}`);
     };
 
     /**
-     *
-     *
      * @param {Event} e
      */
     const bindItemClick = e => {
         e.preventDefault();
         console.log(e);
+    };
+
+    const selectNextItem = () => {
+        let container = searchContainer();
+        let idx = +container.getAttribute("cSearchIdx");
+        const driverBtns = searchList().querySelectorAll("li");
+        idx + 1 > driverBtns.length ? (idx = 1) : idx++;
+        container.setAttribute("cSearchIdx", idx);
+        updateSelectedItem();
+    };
+
+    const selectPrevItem = () => {
+        let container = searchContainer();
+        let idx = +container.getAttribute("cSearchIdx");
+        const driverBtns = searchList().querySelectorAll("li");
+        idx - 1 <= 0 ? (idx = driverBtns.length) : idx--;
+        container.setAttribute("cSearchIdx", idx);
+        updateSelectedItem();
+    };
+
+    const updateSelectedItem = () => {
+        let elem = document.querySelector("[cSearchActive]");
+        if (elem) {
+            elem.removeAttribute("cSearchActive");
+        }
+        let idx = +searchContainer().getAttribute("cSearchIdx");
+        elem = null;
+        elem = searchList().querySelector(`:nth-child(${idx})`);
+        if (elem) {
+            elem.setAttribute("cSearchActive", true);
+        }
+        console.log(elem);
     };
 
     getData();

@@ -213,7 +213,7 @@
     cursor: pointer;
 }
 
-#playerComponentContainer .searchResult li[csearchActive] {
+#playerComponentContainer .searchResult li[cSearchActive] {
     background: rgba(0, 0, 0, 0.2);
 }
 
