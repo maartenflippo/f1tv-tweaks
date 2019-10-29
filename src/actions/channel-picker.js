@@ -2,7 +2,7 @@ import { defaultLogger } from "../shared/Logger";
 import { drivers } from "../data/drivers";
 import * as util from "../shared/util";
 
-export const channelPicker = _ => {
+export const channelPicker = () => {
     /**
      * @returns {Boolean}
      */
@@ -95,6 +95,9 @@ export const channelPicker = _ => {
         return list;
     };
 
+    /**
+     * Changes the Player to the newly selected Channel.
+     */
     const submitForm = () => {
         defaultLogger.info(`Submitted: ${searchBar().value}`);
         let active = document.querySelector("[cSearchActive]");
@@ -192,6 +195,9 @@ export const channelPicker = _ => {
         }
     };
 
+    /**
+     * retrieves data from the API
+     */
     const getData = () => {
         const driverBtns = document.querySelectorAll(
             "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :last-child > :last-child [role=listitem] button"
@@ -231,6 +237,9 @@ export const channelPicker = _ => {
         console.log(e);
     };
 
+    /**
+     * Selects the next available channel item, prevents overflow
+     */
     const selectNextItem = () => {
         let container = searchContainer();
         let idx = +container.getAttribute("cSearchIdx");
@@ -240,6 +249,9 @@ export const channelPicker = _ => {
         updateSelectedItem();
     };
 
+    /**
+     * Selects the next available channel item, prevents overflow
+     */
     const selectPrevItem = () => {
         let container = searchContainer();
         let idx = +container.getAttribute("cSearchIdx");
@@ -249,6 +261,9 @@ export const channelPicker = _ => {
         updateSelectedItem();
     };
 
+    /**
+     * Updates visual state on item. Scrolls items if needed.
+     */
     const updateSelectedItem = () => {
         let elem = document.querySelector("[cSearchActive]");
         if (elem) {
@@ -259,19 +274,19 @@ export const channelPicker = _ => {
         elem = searchList().querySelector(`:nth-child(${idx})`);
         if (elem) {
             elem.setAttribute("cSearchActive", true);
-        }
-
-        elem.scrollIntoView(true);
-        let searchHeight = searchList().parentElement.clientHeight - 60;
-        if (elem.offsetTop > searchHeight) {
-            console.log(searchList().style.marginTop);
+            elem.scrollIntoView(true);
         }
     };
 
     getData();
 };
 
-export const ChannelPickerisFocus = _ => {
+/**
+ * Checks if the Channel picker is on screen
+ *
+ * @returns {Boolean}
+ */
+export const ChannelPickerisFocus = () => {
     let searchBar = document.querySelector(
         "#playerComponentContainer > .searchContainer > .channelPicker"
     );
