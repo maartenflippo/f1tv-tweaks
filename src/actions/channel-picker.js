@@ -63,9 +63,10 @@ export const channelPicker = _ => {
     const searchList = _ => {
         if(!searchContainer()) return;
         let list = null;
-        if(list = util.returnExists("#playerComponentContainer > .searchResult")) return list;
+        if(list = util.returnExists("#playerComponentContainer > div.searchContainer > ul.searchResult")) return list;
         list = document.createElement("ul");
         list.className = "searchResult";
+        searchContainer().appendChild(list);
         return list;
     }
 
@@ -110,6 +111,9 @@ export const channelPicker = _ => {
             return;
         });
 
+
+        clearList();
+
         // Do not attempt to serach without input
         if(!input.length > 0) return;
         
@@ -120,13 +124,13 @@ export const channelPicker = _ => {
 
             let bAdded = false;
             item.searchTerms.forEach(term => {
-                if(term.indexOf(input) === -1) return;
+                if(term.indexOf(input.toUpperCase()) === -1) return;
                 if(!bAdded) retItems.push(item);
                 bAdded = true;
             })
 
         });
-
+        
         retItems.forEach(item => {
             let node = document.createElement("li");
             node.textContent = item.item;
@@ -135,6 +139,13 @@ export const channelPicker = _ => {
         });
         
     };
+
+    const clearList = _ => {
+        let list = searchList();
+        while(list.firstChild){
+            list.removeChild(list.lastChild);
+        }
+    }
 
     const getData = _ => {
         const driverBtns = document.querySelectorAll(

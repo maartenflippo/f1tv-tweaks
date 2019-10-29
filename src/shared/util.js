@@ -19,7 +19,7 @@ export const exists = selector => {
  * @returns {Object | Boolean} if true the element from the selector 
  */
 export const returnExists = selector => {
-    return document.querySelector(selector)
+    return document.querySelector(selector) !== undefined
     ? document.querySelector(selector)
     : false;
     
