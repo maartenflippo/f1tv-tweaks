@@ -99,12 +99,23 @@ export const channelPicker = () => {
      * Changes the Player to the newly selected Channel.
      */
     const submitForm = () => {
-        defaultLogger.info(`Submitted: ${searchBar().value}`);
         let active = document.querySelector("[cSearchActive]");
         if (active) {
             let uid = active.getAttribute("uid");
-            let btn = document.querySelector(`button[uid=${uid}]`);
-            btn.click();
+            let btn = document.querySelector(`button[uid='${uid}']`);
+            if (btn) {
+                defaultLogger.info(`Submitted: ${uid}`);
+                btn.click();
+            } else {
+                let defChannels = document.querySelectorAll(
+                    "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :first-child > :first-child button"
+                );
+                defChannels.forEach(elem => {
+                    if (elem.textContent == uid) {
+                        elem.click();
+                    }
+                });
+            }
         }
     };
 
