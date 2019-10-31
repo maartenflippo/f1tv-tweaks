@@ -192,8 +192,12 @@
     background-color: rgba(21, 21, 30, 0.8);
 }
 
-#playerComponentContainer.locked-open .upstairs.hidden,
-#playerComponentContainer.locked-open .downstairs.hidden {
+#playerComponentContainer.locked-open
+    .controlbar-container.hidden
+    .upstairs.hidden,
+#playerComponentContainer.locked-open
+    .controlbar-container.hidden
+    .downstairs.hidden {
     opacity: 1;
     visibility: visible;
 }
