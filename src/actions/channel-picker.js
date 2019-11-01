@@ -136,6 +136,7 @@ export const channelPicker = () => {
                 case "Pit Lane":
                 case "Tracker":
                 case "Data":
+                case "Live":
                     possibilities.push({
                         item: elem.textContent,
                         searchTerms: [elem.textContent.toUpperCase()],
@@ -220,7 +221,7 @@ export const channelPicker = () => {
         );
         driverBtns.forEach(elem => {
             let number = elem.querySelector("span:first-child").textContent;
-            let shorthand = elem.querySelector("span:last-child").textContent;
+            let shorthand = elem.querySelector("span:nth-child(3)").textContent;
             getDriverInfo(shorthand, number, elem);
         });
     };
@@ -232,7 +233,7 @@ export const channelPicker = () => {
      * @param {Element} elem
      */
     const getDriverInfo = (name, number, elem) => {
-        let url = `https://f1tv.formula1.com/api/driver/?driver_tla=${name}&driver_racingnumber=${number}&limit=1&fields=first_name,last_name`;
+        let url = `https://f1tv.formula1.com/api/driver/?driver_tla=${name}}&limit=1&fields=first_name,last_name`;
         let request = new XMLHttpRequest();
         request.open("GET", url);
         request.responseType = "json";
@@ -242,7 +243,7 @@ export const channelPicker = () => {
             elem.setAttribute("firstname", item.first_name);
             elem.setAttribute("lastname", item.last_name);
         };
-        elem.setAttribute("uid", `${name}${number}`);
+        elem.setAttribute("uid", `${name}`);
     };
 
     /**
