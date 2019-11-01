@@ -7,8 +7,7 @@ import {
     moveTitle,
     channelPicker,
     ChannelPickerisFocus,
-    skip,
-    moveTitle
+    skip
 } from "./actions/index";
 
 let rendered = false;

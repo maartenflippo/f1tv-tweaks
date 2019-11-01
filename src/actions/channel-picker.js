@@ -233,7 +233,7 @@ export const channelPicker = () => {
      * @param {Element} elem
      */
     const getDriverInfo = (name, number, elem) => {
-        let url = `https://f1tv.formula1.com/api/driver/?driver_tla=${name}}&limit=1&fields=first_name,last_name`;
+        let url = `https://f1tv.formula1.com/api/driver/?driver_tla=${name}&order=last_data_ingest&fields=last_name,first_name,driver_racingnumber&limit=1`;
         let request = new XMLHttpRequest();
         request.open("GET", url);
         request.responseType = "json";
