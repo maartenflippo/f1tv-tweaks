@@ -1,5 +1,5 @@
 bundle.js
 manifest.json
 node_modules
-public
 web-ext-artifacts
+public/bundle.js
