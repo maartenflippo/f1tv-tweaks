@@ -44,6 +44,8 @@ export const toggleLockedControls = () => {
 };
 
 export const createLockedButton = () => {
+    if (!!document.querySelector(`#${btnId}`)) return;
+
     const containerSelector = ".cb-left-items";
 
     const element = `<div class="cb-button tweaks-button" id="${btnId}">
@@ -68,7 +70,7 @@ export const createLockedButton = () => {
     container.appendChild(node);
 };
 
-const toNode = html => {
+const toNode = (html) => {
     const template = document.createElement("template");
     template.innerHTML = html;
     return template.content.firstChild;
