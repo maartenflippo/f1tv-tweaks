@@ -1,7 +1,7 @@
 ._28ubt {
-    grid-template-columns: auto 200px; /* Reduce sidebar width */
-    grid-template-rows: 100%; /* Remove title card area below video player */
-    position: relative; /* For positioning the title bar */
+    grid-template-columns: auto 200px !important; /* Reduce sidebar width */
+    grid-template-rows: 100% !important; /* Remove title card area below video player */
+    position: relative !important; /* For positioning the title bar */
 }
 
 /* Sidebar */
@@ -18,15 +18,15 @@
     position: absolute;
     top: 0;
     z-index: 501; /* The click-to-play overlay is at z-index 500 */
-    border-radius: 0;
-    width: calc(100% - 200px);
+    border-radius: 0 !important;
+    width: calc(100% - 200px) !important;
 
     background: rgb(36, 36, 51);
     background: linear-gradient(
         180deg,
         rgba(36, 36, 51, 1) 50%,
         rgba(0, 0, 0, 0) 100%
-    );
+    ) !important;
 }
 
 ._30S_w ._1WHOy {
