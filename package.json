@@ -1,6 +1,6 @@
 {
     "name": "f1tv-tweaks",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Adds useful tools to add to the usability of the F1TV streaming page",
     "main": "src/main.js",
     "scripts": {
