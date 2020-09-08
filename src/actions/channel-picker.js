@@ -108,7 +108,7 @@ export const channelPicker = () => {
                 btn.click();
             } else {
                 let defChannels = document.querySelectorAll(
-                    "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :first-child > :first-child button"
+                    "[role=listitem] button"
                 );
                 defChannels.forEach(elem => {
                     if (elem.textContent == uid) {
@@ -125,7 +125,7 @@ export const channelPicker = () => {
     const searchResults = () => {
         const input = searchBar().value;
         const availabilities = document.querySelectorAll(
-            "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :last-child [role=listitem] > button"
+            "[role=listitem] > button"
         );
         let possibilities = [];
 
@@ -216,12 +216,14 @@ export const channelPicker = () => {
      */
     const getData = () => {
         const driverBtns = document.querySelectorAll(
-            "._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child > :last-child > :last-child [role=listitem] button"
+            "[role=listitem] button"
         );
         driverBtns.forEach(elem => {
             let number = elem.querySelector("span:first-child").textContent;
             let shorthand = elem.querySelector("span:last-child").textContent;
-            getDriverInfo(shorthand, number, elem);
+            if(shorthand.length == 3)
+                getDriverInfo(shorthand, number, elem);
+           
         });
     };
 
@@ -232,15 +234,17 @@ export const channelPicker = () => {
      * @param {Element} elem
      */
     const getDriverInfo = (name, number, elem) => {
-        let url = `https://f1tv.formula1.com/api/driver/?driver_tla=${name}&driver_racingnumber=${number}&limit=1&fields=first_name,last_name`;
+        let url = `https://f1tv.formula1.com/api/driver-occurrence/?limit=1&driver_tla=${name}&driver_racingnumber=${number}&fields=driver_url,driver_url__first_name,driver_url__last_name&fields_to_expand=driver_url`;
         let request = new XMLHttpRequest();
         request.open("GET", url);
         request.responseType = "json";
         request.send();
         request.onload = _ => {
+            if(request.status != 200) return;
             let item = request.response.objects[0];
-            elem.setAttribute("firstname", item.first_name);
-            elem.setAttribute("lastname", item.last_name);
+            console.log(item);
+            elem.setAttribute("firstname", item.driver_url.first_name);
+            elem.setAttribute("lastname", item.driver_url.last_name);
         };
         elem.setAttribute("uid", `${name}${number}`);
     };

@@ -1,2 +1,5 @@
-web-ext-artifacts/
-node_modules/
+bundle.js
+manifest.json
+node_modules
+web-ext-artifacts
+public/bundle.js

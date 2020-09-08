@@ -1,0 +1,277 @@
+._2c4vB > .content-wrapper > .content-wrapper__inner {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+}
+
+._2c4vB > .content-wrapper > .content-wrapper__inner > div {
+    position: relative;
+}
+
+/* Main content */
+._2c4vB > .content-wrapper > .content-wrapper__inner > :first-child {
+    flex: 1;
+    width: auto !important;
+    margin: 0;
+    display: flex;
+    min-height: auto;
+    float: none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :first-child {
+    flex: 1;
+}
+
+._2c4vB > .content-wrapper > .content-wrapper__inner #html5-player {
+    display: flex;
+}
+
+._2c4vB > .content-wrapper > .content-wrapper__inner #html5-player > div {
+    flex: 1;
+    display: flex;
+}
+
+._2c4vB > .content-wrapper > .content-wrapper__inner .htmlplayer-container {
+    width: 100%;
+    position: relative !important;
+    display: flex;
+}
+
+._2c4vB > .content-wrapper > .content-wrapper__inner app-player-group {
+    display: flex;
+    flex: 1;
+}
+
+._2c4vB > .content-wrapper > .content-wrapper__inner .playerWrapper {
+    padding: 0 !important;
+    flex: 1 !important;
+}
+
+/* Video title */
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child {
+    padding-top: 0;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 50px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 1;
+    transition: ease opacity 600ms;
+}
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child
+    > :first-child {
+    background: transparent;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child.hidden {
+    opacity: 0;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child
+    > div {
+    margin: 0;
+    border-radius: 0;
+    width: auto;
+    max-width: 100%;
+    padding: 20px 0;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child
+    > div
+    span {
+    display: inline;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child
+    > div
+    span:first-child {
+    font-size: 22px;
+    line-height: normal;
+    margin-right: 20px;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child
+    > div
+    span:first-child::after {
+    content: "●";
+    margin-left: 20px;
+}
+
+._2c4vB
+    > .content-wrapper
+    > .content-wrapper__inner
+    > :first-child
+    > :last-child
+    > div
+    span:last-child {
+    font-size: 16px;
+}
+
+/* Driver cam title */
+/* Driver number */
+._1BL6p {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Driver image, stylized number */
+.gkmHm,
+._2VAGG {
+    display: none;
+}
+
+/* Hide rounded line in title */
+._3TTki {
+    border: none;
+}
+
+/* Vertically center driver number */
+._378QM {
+    min-height: 0px;
+    align-items: center;
+}
+
+/* /Driver cam title */
+
+/* Sidebar */
+._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child {
+    max-width: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Camera selector buttons */
+._2c4vB > .content-wrapper > .content-wrapper__inner > :last-child button {
+    border-radius: 0;
+}
+
+/* Locked controls */
+#playerComponentContainer.locked-open .controlbar-container.hidden {
+    background-color: rgba(21, 21, 30, 0.8);
+}
+
+#playerComponentContainer.locked-open
+    .controlbar-container.hidden
+    .upstairs.hidden,
+#playerComponentContainer.locked-open
+    .controlbar-container.hidden
+    .downstairs.hidden {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tweaks-button {
+    width: 22px;
+    height: 22px;
+    margin-left: 16px;
+    opacity: 0.7;
+}
+
+.lock-controls-button .icon {
+    display: block;
+    font-family: ReplayerIcons;
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+}
+
+.lock-controls-button .icon::before {
+    content: "\e98f";
+}
+/* /Locked controls */
+
+/* Driver Picker */
+
+#playerComponentContainer .searchContainer {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 9998;
+    width: 50%;
+    max-width: 1200px;
+    max-height: 50%;
+    height: 50%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#playerComponentContainer .channelPicker {
+    background: rgba(202, 205, 214, 0.75);
+    border: 1px solid #7e8190;
+    height: 60px;
+    padding: 0 20px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 24px;
+    display: block;
+}
+
+#playerComponentContainer .searchResult {
+    list-style: none;
+    width: 100%;
+    background: rgba(202, 205, 214, 0.75);
+    overflow: hidden;
+    display: block;
+    max-height: calc(100% - 60px);
+    overflow: hidden;
+    border: 1px solid #7e8190;
+    border-top: none;
+}
+
+#playerComponentContainer .searchResult li {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 4px 10px;
+    border-bottom: 1px solid #7e8190;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#playerComponentContainer .searchResult li[cSearchActive] {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* /Driver Picker */

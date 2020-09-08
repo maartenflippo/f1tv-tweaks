@@ -7,8 +7,7 @@ import {
     moveTitle,
     channelPicker,
     ChannelPickerisFocus,
-    skip,
-    moveTitle
+    skip
 } from "./actions/index";
 
 let rendered = false;
@@ -16,6 +15,7 @@ let rendered = false;
 /**
  * Verify whether the F1TV page has been rendered.
  */
+/*
 const checkPageRendered = () => {
     logger.debug("Checking rendered status of page.");
     if (!!document.querySelector("#playerComponentContainer") && !rendered) {
@@ -24,7 +24,7 @@ const checkPageRendered = () => {
         logger.info("Page rendered");
     }
 };
-
+*/
 logger.info("Starting...");
 
 const actionMap = {
@@ -68,6 +68,7 @@ document.addEventListener("keydown", e => {
 
 moveTitle();
 
+/*
 const pageMutationObserver = new MutationObserver(mutations => {
     checkPageRendered();
 });
@@ -76,5 +77,5 @@ pageMutationObserver.observe(document.querySelector("#root"), {
     subtree: true,
     childList: true
 });
-
+*/
 logger.info("Started");
